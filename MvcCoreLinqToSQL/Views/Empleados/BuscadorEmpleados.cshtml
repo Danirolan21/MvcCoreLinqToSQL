@@ -1,0 +1,43 @@
+﻿<h1> Buscador Linq To SQL</h1>
+
+<form method="post">
+	<label class="form-label">Oficio: </label>
+	<input type="text" class="form-control" name="oficio" />
+	<label class="form-label">Salario: </label>
+	<input type="text" class="form-control" name="salario" />
+	<button class="btn btn-dark my-3">
+		Buscar
+	</button>
+</form>
+
+<h2 style="color: red">
+	@ViewData["MENSAJE"]
+</h2>
+
+@if (Model != null) {
+	<table class="table table-light table-striped">
+		<thead>
+			<tr>
+				<th>
+					Apellido
+				</th>
+				<th>
+					Oficio
+				</th>
+				<th>
+					Salario
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (Empleado emp in Model)
+			{
+				<tr>
+					<td>@emp.Apellido</td>
+					<td>@emp.Oficio</td>
+					<td>@emp.Salario</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
