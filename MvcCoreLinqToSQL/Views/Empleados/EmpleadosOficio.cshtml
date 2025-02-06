@@ -1,9 +1,19 @@
-﻿
+﻿@model ResumenEmpleados
+
+@{
+    List<string> oficios = 
+        ViewData["OFICIOS"] as List<string>;
+}
+
 <h1>Empleados Oficio</h1>
 
 <form method="post">
 	<label class="form-label">Introduzca un oficio: </label>
-	<input type="text" class="form-control" name="oficio" />
+    <select class="form-select" name="oficio">
+        @foreach(string oficio in oficios) {
+            <option value="@oficio">@oficio</option>
+        }
+    </select>
 	<button class="btn btn-dark my-3">
 		Filtrar Empleados
 	</button>

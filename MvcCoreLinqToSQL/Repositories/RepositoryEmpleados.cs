@@ -127,5 +127,12 @@ namespace MvcCoreLinqToSQL.Repositories
             resumen.Empleados = empleados;
             return resumen;
         }
+
+        public List<string> GetOficios()
+        {
+            var consulta = (from datos in tablaEmpleados.AsEnumerable()
+                            select datos.Field<string>("OFICIO")).Distinct();
+            return consulta.ToList();
+        }
     }
 }

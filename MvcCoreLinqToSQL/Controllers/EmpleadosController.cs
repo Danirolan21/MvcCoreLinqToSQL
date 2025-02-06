@@ -45,6 +45,7 @@ namespace MvcCoreLinqToSQL.Controllers
 
         public IActionResult EmpleadosOficio()
         {
+            ViewData["OFICIOS"] = this.repo.GetOficios();
             return View();
         }
 
@@ -52,6 +53,7 @@ namespace MvcCoreLinqToSQL.Controllers
         public IActionResult EmpleadosOficio(string oficio)
         {
             ResumenEmpleados resumen = this.repo.GetEmpleadosOficio(oficio);
+            ViewData["OFICIOS"] = this.repo.GetOficios();
             return View(resumen);
         }
     }
